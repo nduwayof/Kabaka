@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Kabaka | Registration</title>
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,8 +22,10 @@
 
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-        
+
     </head>
     <body>
+        <jsp:include page="Kabaka/views/layout/navbar.jsp"/>
+        <jsp:include page="Kabaka/views/layout/footer.jsp"/>
     </body>
 </html>

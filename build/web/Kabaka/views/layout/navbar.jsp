@@ -10,8 +10,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#home" class="smoothScroll">Home</a></li>
-            </div><!--/.nav-collapse -->
+                    <li><a href="home.jsp" class="smoothScroll">Home</a></li>
+                    <li><a href="registration.jsp" class="smoothScroll">Registration</a></li>
+            </div>
         </div>
     </div>
 </div>
