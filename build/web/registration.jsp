@@ -34,8 +34,25 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#wizard').smartWizard({transitionEffect: 'slide'});
+                $('#individual').hide();
+                $('#nonIndividual').hide();
+                $('#deceasedDate').hide();
 
             });
+            function showIndividual() {
+                $('#nonIndividual').hide();
+                $('#individual').show();
+            }
+            function showNonIndividual() {
+                $('#individual').hide();
+                $('#nonIndividual').show();
+            }
+            function showDeceaseDate() {
+                $('#deceasedDate').show();
+            }
+            function hideDeceaseDate() {
+                $('#deceasedDate').hide();
+            }
         </script>
 
     </head>
@@ -91,7 +108,13 @@
                                                     <a class="btn btn-info" href="javascript:void(0)" onclick="showNonIndividual()">Non Individual</a>
                                                 </label>
                                             </div>
+
                                         </div>
+                                    </div>
+                                    <div id="individual">
+                                        <jsp:include page="Kabaka/views/wizard/individual.jsp"/>
+                                    </div>
+                                    <div id="nonIndividual">
                                     </div>
 
                                 </div>
@@ -159,9 +182,8 @@
         <script src="Kabaka/libs//bower_components/bootstrap/js/bootstrap.min.js"></script>
         <script src="Kabaka/js/main.js"></script>
         <script>
-            function showIndividual(){
-                 alert('testing');
-            }
+
+
         </script>
     </body>
 </html>
