@@ -709,7 +709,7 @@
             <label for="dob">Date of Birth</label>
         </div>
         <div class="col-md-9">
-            <input type="text" name="dob" class="form-control">
+            <input type="date" name="dob" class="form-control">
         </div>
     </div>
 </div>
