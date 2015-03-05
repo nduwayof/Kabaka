@@ -658,31 +658,58 @@
     </div>
     <div class="col-md-9">
         <label>
-            <input type="radio" name="civilStatus">Single
+            <input type="radio" name="civilStatus" onclick="hideCivil()">Single
         </label>
         <label>
-            <input type="radio" name="civilStatus">Married
+            <input type="radio" name="civilStatus" onclick="showCivil()">Married
         </label>
         <label>
-            <input type="radio" name="civilStatus">In a Civil Partnership
+            <input type="radio" name="civilStatus" onclick="showCivil()">In a Civil Partnership
         </label>
         <label>
-            <input type="radio" name="civilStatus">Divorced
+            <input type="radio" name="civilStatus" onclick="hideCivil()">Divorced
         </label>
         <label>
-            <input type="radio" name="civilStatus">A former Civil Partner 
+            <input type="radio" name="civilStatus" onclick="hideCivil()">A former Civil Partner 
         </label>
         <label>
-            <input type="radio" name="civilStatus">Married but living apart 
+            <input type="radio" name="civilStatus" onclick="hideCivil()">Married but living apart 
         </label>
         <label>
-            <input type="radio" name="civilStatus">Widowed 
+            <input type="radio" name="civilStatus" onclick="hideCivil()">Widowed 
         </label>
         <label>
-            <input type="radio" name="civilStatus">A Surviving Civil Partner 
+            <input type="radio" name="civilStatus" onclick="hideCivil()">A Surviving Civil Partner 
         </label>
         <label>
-            <input type="radio" name="civilStatus">In a Civil Partnership but living apart 
+            <input type="radio" name="civilStatus" onclick="hideCivil()">In a Civil Partnership but living apart 
         </label>
+    </div>
+</div>
+<div id="civilId">
+    <h3>Partner Informations</h3>
+    <div class="form-group">
+        <div class="col-md-3">
+            <label for="name">Name</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" name="marriageName" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <label for="surname">Surname</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" name="marriageSurname" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+            <label for="dob">Date of Birth</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" name="dob" class="form-control">
+        </div>
     </div>
 </div>

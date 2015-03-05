@@ -37,6 +37,8 @@
                 $('#individual').hide();
                 $('#nonIndividual').hide();
                 $('#deceasedDate').hide();
+                $('#civilId').hide();
+
 
             });
             function showIndividual() {
@@ -53,6 +55,15 @@
             function hideDeceaseDate() {
                 $('#deceasedDate').hide();
             }
+            function showCivil() {
+                $('#civilId').show();
+
+            }
+            function hideCivil() {
+                $('#civilId').hide();
+
+            }
+
         </script>
 
     </head>
