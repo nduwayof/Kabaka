@@ -656,4 +656,33 @@
     <div class="col-md-3">
         <label for="civilStatus"></label>
     </div>
+    <div class="col-md-9">
+        <label>
+            <input type="radio" name="civilStatus">Single
+        </label>
+        <label>
+            <input type="radio" name="civilStatus">Married
+        </label>
+        <label>
+            <input type="radio" name="civilStatus">In a Civil Partnership
+        </label>
+        <label>
+            <input type="radio" name="civilStatus">Divorced
+        </label>
+        <label>
+            <input type="radio" name="civilStatus">A former Civil Partner 
+        </label>
+        <label>
+            <input type="radio" name="civilStatus">Married but living apart 
+        </label>
+        <label>
+            <input type="radio" name="civilStatus">Widowed 
+        </label>
+        <label>
+            <input type="radio" name="civilStatus">A Surviving Civil Partner 
+        </label>
+        <label>
+            <input type="radio" name="civilStatus">In a Civil Partnership but living apart 
+        </label>
+    </div>
 </div>
