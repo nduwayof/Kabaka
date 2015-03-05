@@ -49,12 +49,15 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>Kabaka | Home</title>\n");
-      out.write("        \n");
+      out.write("\n");
       out.write("        <meta name=\"description\" content=\"\">\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
       out.write("\n");
       out.write("        <link href=\"Kabaka/libs/bower_components/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\"/>\n");
+      out.write("        <link href=\"Kabaka/css/main.css\" rel=\"stylesheet\"/>\n");
       out.write("        <link href=\"Kabaka/libs/bower_components/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\"/>\n");
+      out.write("        <link href=\"Kabaka/css/icomoon.css\" rel=\"stylesheet\"/>\n");
+      out.write("\n");
       out.write("\n");
       out.write("        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>\n");
       out.write("        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>\n");
@@ -66,6 +69,9 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Kabaka/views/layout/navbar.jsp", out, false);
+      out.write("\n");
+      out.write("        ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Kabaka/views/layout/jumbtron.jsp", out, false);
       out.write("\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Kabaka/views/layout/footer.jsp", out, false);

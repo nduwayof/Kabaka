@@ -29,6 +29,7 @@
     </head>
     <body>
         <jsp:include page="Kabaka/views/layout/navbar.jsp"/>
+        <jsp:include page="Kabaka/views/layout/jumbtron.jsp"/>
         <jsp:include page="Kabaka/views/layout/footer.jsp"/>
 
         <script src="Kabaka/libs//bower_components/jquery/js/jquery.min.js"></script>
