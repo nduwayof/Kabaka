@@ -25,7 +25,7 @@
   border: 0px solid #CCC;    
   overflow:hidden;
   clear:right;
-  height:1000px;
+  height:400px;
 }
 
 .swMain .stepContainer div.content {
@@ -38,7 +38,7 @@
   font: normal 12px Verdana, Arial, Helvetica, sans-serif; 
   color:#5A5655;   
   background-color:#F8F8F8;  
-  height:1000px;
+  height:1250px;
   text-align:left;
   overflow:auto;    
   z-index:88; 

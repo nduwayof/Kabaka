@@ -632,3 +632,28 @@
         </select>
     </div>
 </div>
+<div class="form-group">
+    <div class="col-md-3">
+        <label for="taxpayerType">Type of Taxpayer</label>
+    </div>
+    <div class="col-md-9">
+        <select class="form-control" name="taxpayerType">
+            <option>taxpayerType</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-3">
+        <label for="taxType">Type of Taxes</label>
+    </div>
+    <div class="col-md-9">
+        <select class="form-control" name="taxpayerType">
+            <option>taxType</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-3">
+        <label for="civilStatus"></label>
+    </div>
+</div>
