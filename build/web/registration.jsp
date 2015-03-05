@@ -36,7 +36,7 @@
                 $('#wizard').smartWizard({transitionEffect: 'slide'});
                 $('#individual').hide();
                 $('#nonIndividual').hide();
-
+                $('#deceasedDate').hide();
 
             });
             function showIndividual() {
@@ -44,8 +44,14 @@
                 $('#individual').show();
             }
             function showNonIndividual() {
-                 $('#individual').hide();
+                $('#individual').hide();
                 $('#nonIndividual').show();
+            }
+            function showDeceaseDate() {
+                $('#deceasedDate').show();
+            }
+            function hideDeceaseDate() {
+                $('#deceasedDate').hide();
             }
         </script>
 
