@@ -9,7 +9,7 @@
             <h1>Online Enterprises Registration System</h1>
             <p>
                 Welcome to the online Enterprises Registration System.<br> 
-                Please Click on the below button to start the process
+                Please Click on the  button below to start the process
             </p>
             <div class="btn-group">
                 <a class="btn btn-primary btn-lg" href="registration.jsp">
