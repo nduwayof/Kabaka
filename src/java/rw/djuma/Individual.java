@@ -543,8 +543,8 @@ public class Individual {
         PreparedStatement st=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         st.setString(1, ownerSurname);
         st.setString(2, ownerFirstName);
-        st.setDate(3, new java.sql.Date(dob1.getTime()));
-        st.setDate(4, new java.sql.Date(deceadDate1.getTime()));
+        st.setString(3, dob);
+        st.setString(4, deceadDate);
         st.setString(5, gender);
         st.setString(6, occupation);
         st.setString(7, nationality);
@@ -562,7 +562,7 @@ public class Individual {
         st.setString(19, civilStatus);
         st.setString(20, mariageName);
         st.setString(21, mariageSurname);
-        st.setDate(22, new java.sql.Date(mariageDob1.getTime()));
+        st.setString(22, mariageDob);
         st.setString(23, plotNo);
         st.setString(24, street);
         st.setString(25, cellule);

@@ -6,8 +6,11 @@
 package rw.djuma;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -106,5 +109,27 @@ public class TaxPayerType {
     error="Try Again";
     valid=false;
     }
+    }
+    
+    public static List<TaxPayerType>listTaxPayerType(){
+    List<TaxPayerType>list=new ArrayList<TaxPayerType>();
+    
+    try{
+    PreparedStatement st=SetCon.getCon().prepareStatement("select * from taxPayerType");
+        ResultSet rs=st.executeQuery();
+        while(rs.next()){
+        TaxPayerType t=new TaxPayerType();
+        t.setId(rs.getInt(1));
+        t.setTaxpayerType(rs.getString(2));
+        t.setDoneAt(rs.getTimestamp(3));
+        t.setDoneBy(rs.getString(4));
+        t.setDeletedStatus(rs.getBoolean(5));
+        list.add(t);
+        }
+    }catch(Exception e){
+    
+    }
+    
+    return list;
     }
 }

@@ -4,6 +4,8 @@
     Author     : Fabrice
 --%>
 
+<%@page import="rw.djuma.TaxPayerType"%>
+<%@page import="rw.djuma.TaxType"%>
 <div class="form-group">
     <div class="col-md-3">
         <label for="surname">Owner's Surname</label>
@@ -638,7 +640,15 @@
     </div>
     <div class="col-md-9">
         <select class="form-control" name="taxpayerType">
-            <option>taxpayerType</option>
+            <%
+            for(TaxPayerType t: TaxPayerType.listTaxPayerType()){
+            if(t.isDeletedStatus()==false){
+            %>
+            <option value="<%=t.getId()%>"><%=t.getTaxpayerType()%></option>
+            <%
+            }
+            }
+            %>
         </select>
     </div>
 </div>
@@ -648,7 +658,15 @@
     </div>
     <div class="col-md-9">
         <select class="form-control" name="taxpayerType">
-            <option>taxType</option>
+            <%
+            for(TaxType t: TaxType.listTaxType()){
+            if(t.isDeletedStatus()==false){
+            %>
+            <option value="<%=t.getId()%>"><%=t.getTaxType()%></option>
+            <%
+            }
+            }
+            %>
         </select>
     </div>
 </div>
