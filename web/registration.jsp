@@ -13,6 +13,7 @@
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
 
         <link href="Kabaka/libs/bower_components/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="Kabaka/css/main.css" rel="stylesheet"/>
@@ -129,20 +130,13 @@
                                     </div>
                                     <div id="nonIndividual">
                                         <h3>Non Individual Enterprise</h3>
+                                        <jsp:include page="Kabaka/views/wizard/nonIndividual.jsp"/>
                                     </div>
 
                                 </div>
                                 <div id="step-2">
                                     <h2 class="StepTitle">Step 2 Addresses for addresses</h2>
-                                    <br>
-                                    <div class="form-group">
-                                        <div class="col-md-3">
-                                            <label for="PlotNo">Plot/House No</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <input type="text" name="plotNo" name="plotNo" class="form-control">
-                                        </div>
-                                    </div>
+                                    <jsp:include page="Kabaka/views/wizard/addresses.jsp"/>                                
                                 </div>                      
                                 <div id="step-3">
                                     <h2 class="StepTitle">Step 3 Content</h2>	

@@ -13,6 +13,7 @@
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
 
         <link href="Kabaka/libs/bower_components/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="Kabaka/css/main.css" rel="stylesheet"/>
