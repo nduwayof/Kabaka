@@ -12,6 +12,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="home.jsp" class="smoothScroll">Home</a></li>
                     <li><a href="registration.jsp" class="smoothScroll">Registration</a></li>
+                    <li><a href="ListIndividual.jsp" class="smoothScroll">Individual Enterprise List</a></li>
+
             </div>
         </div>
     </div>

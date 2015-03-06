@@ -23,5 +23,6 @@ public class testing {
     i.setTaxType("1");
     i.setTaxpayerType("2");
     //i.save();
+    System.out.println(Individual.newTinNumber());
     }
 }

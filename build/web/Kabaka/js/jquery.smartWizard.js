@@ -99,8 +99,18 @@ function SmartWizard(target, options) {
                         return false;
                     }
                 }else{
-                    var frm = $this.target.parents('form');
-                      //alert('Rwanda');
+                    var frm = $this.target.parents('#dju');
+                     // alert(frm);
+                     var formData = [];
+        formData = $("form").serializeArray();
+                     $.post("processing.jsp", formData,
+            function (data) {
+                // alert(data);
+              //  document.getElementById("sp20").innerHTML = data;
+
+            }
+        );
+                      
                     if(frm && frm.length){
                         frm.submit();
                     }
