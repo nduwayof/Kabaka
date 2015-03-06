@@ -142,6 +142,7 @@
             </tbody>
         </table>
     </div>
+                <jsp:include page="Kabaka/views/layout/footer.jsp"/>
 </body>
 </html>
 <script type="text/javascript">
