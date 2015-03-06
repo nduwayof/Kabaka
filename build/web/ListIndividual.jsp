@@ -29,6 +29,29 @@
                     Back To Registration
             </i>
                 </a>
+           
+          <center>
+              <form action="report.jsp" method="POST">
+                  Select Tax Payer Type To Print: <select name="taxpayerType">
+            <%
+            for(TaxPayerType t: TaxPayerType.listTaxPayerType()){
+            if(t.isDeletedStatus()==false){
+            %>
+            <option value="<%=t.getId()%>"><%=t.getTaxpayerType()%></option>
+            <%
+            }
+            }
+            %>
+        </select>
+                  <button  type="Submit"class="btn btn-primary btn-lg">
+            <i class="glyphicon glyphicon-print">
+                    Print
+            </i>
+                </button>
+              </form>
+            
+          </center>
+        <div>
         <table border="1" id="djuma">
             <thead>
                 <tr>
@@ -83,7 +106,7 @@
                 %>
             </tbody>
         </table>
-
+        </div>
     </body>
 </html>
   <script type="text/javascript"> 
