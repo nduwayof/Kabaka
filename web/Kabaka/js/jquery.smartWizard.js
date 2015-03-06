@@ -100,7 +100,6 @@ function SmartWizard(target, options) {
                     }
                 }else{
                     var frm = $this.target.parents('form');
-                      //alert('Rwanda');
                     if(frm && frm.length){
                         frm.submit();
                     }
