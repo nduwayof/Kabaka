@@ -26,6 +26,7 @@
 
         <link rel="stylesheet" href="media/css/jquery.dataTables.css" type="text/css">
         <link rel="stylesheet" href="media/css/jquery.dataTables.min.css" type="text/css">  
+        <link rel="stylesheet" href="media/css/dataTables.bootstrap.css" type="text/css">  
         <link rel="stylesheet" href="media/css/dataTables.tableTools.css" type="text/css"> 
 
 
@@ -33,6 +34,7 @@
         <script src="media/js/jquery.dataTables.js" type="text/javascript"></script>
         <script src="media/js/dataTable.tableTools.min.js" type="text/javascript"></script>
         <script src="media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script src="media/js/dataTables.bootstrap.js" type="text/javascript"></script>
 
 
 
@@ -42,108 +44,111 @@
 
         <br>
         <br>
-    <center>
-        <form action="report.jsp" method="POST" class="form-horizontal">
-            <div class="col-lg-3">
-                <a class="btn btn-primary btn-lg" href="registration.jsp">
-                    <i class="glyphicon glyphicon-arrow-left bigger-130">
-                        Back To Registration
-                    </i>
-                </a>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <div class="col-md-5">
-                        <label>            
-                            Select Tax Payer Type To Print: 
-                        </label>
+        <div class="container">
+            <center>
+                <form action="report.jsp" method="POST" class="form-horizontal">
+                    <div class="col-lg-3">
+                        <a class="btn btn-primary btn-lg" href="registration.jsp">
+                            <i class="glyphicon glyphicon-arrow-left bigger-130">
+                                Back To Registration
+                            </i>
+                        </a>
                     </div>
-                    <div class="col-md-5">
-                        <select name="taxpayerType" class="form-control">
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                <label>            
+                                    Select Tax Payer Type To Print: 
+                                </label>
+                            </div>
+                            <div class="col-md-5">
+                                <select name="taxpayerType" class="form-control">
+                                    <%
+                                        for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
+                                            if (t.isDeletedStatus() == false) {
+                                    %>
+                                    <option value="<%=t.getId()%>"><%=t.getTaxpayerType()%></option>
+                                    <%
+                                            }
+                                        }
+                                    %>
+                                </select> 
+                            </div>
+                            <div class="col-md-2">
+                                <button  type="Submit"class="btn btn-primary btn-lg">
+                                    <i class="glyphicon glyphicon-print">
+                                        Print
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+
+                    </div>
+                </form>
+
+            </center>
+            <div>
+                <table border="1" id="djuma">
+                    <thead>
+                        <tr>
+                            <th>Surname</th>
+                            <th>FirstName</th>
+                            <th>Gender</th>
+                            <th>TIN NUMBER</th>
+                            <th>Nationality</th>
+                            <th>TaxPayerType</th>
+                            <th>TaxType</th>
+                            <th>Representative Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            for (Individual i : Individual.listIndividual()) {
+                        %>
+                        <tr>
+                            <td><%=i.getOwnerSurname()%></td>
+                            <td><%=i.getOwnerFirstName()%></td>
+                            <td><%=i.getGender()%></td>
+                            <td><%=i.getTinNumber()%></td>
+                            <td><%=i.getNationality()%></td>
                             <%
                                 for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
-                                    if (t.isDeletedStatus() == false) {
+                                    if (t.getId() == Integer.parseInt(i.getTaxpayerType())) {
                             %>
-                            <option value="<%=t.getId()%>"><%=t.getTaxpayerType()%></option>
+                            <td><%=t.getTaxpayerType()%></td>
+                            <%
+
+                                    }
+                                }
+                            %>
+                            <%
+                                for (TaxType ta : TaxType.listTaxType()) {
+                                    if (ta.getId() == Integer.parseInt(i.getTaxType())) {
+                            %>
+                            <td><%=ta.getTaxType()%></td>
                             <%
                                     }
                                 }
                             %>
-                        </select> 
-                    </div>
-                    <div class="col-md-2">
-                        <button  type="Submit"class="btn btn-primary btn-lg">
-                            <i class="glyphicon glyphicon-print">
-                                Print
-                            </i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
+                            <td><%=i.getTaxpayerRepresentativeName()%></td>
 
-            </div>
-        </form>
+                        </tr>
 
-    </center>
-    <div>
-        <table border="1" id="djuma">
-            <thead>
-                <tr>
-                    <th>Surname</th>
-                    <th>FirstName</th>
-                    <th>Gender</th>
-                    <th>TIN NUMBER</th>
-                    <th>Nationality</th>
-                    <th>TaxPayerType</th>
-                    <th>TaxType</th>
-                    <th>Representative Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    for (Individual i : Individual.listIndividual()) {
-                %>
-                <tr>
-                    <td><%=i.getOwnerSurname()%></td>
-                    <td><%=i.getOwnerFirstName()%></td>
-                    <td><%=i.getGender()%></td>
-                    <td><%=i.getTinNumber()%></td>
-                    <td><%=i.getNationality()%></td>
-                    <%
-                        for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
-                            if (t.getId() == Integer.parseInt(i.getTaxpayerType())) {
-                    %>
-                    <td><%=t.getTaxpayerType()%></td>
-                    <%
+                        <%
 
                             }
-                        }
-                    %>
-                    <%
-                        for (TaxType ta : TaxType.listTaxType()) {
-                            if (ta.getId() == Integer.parseInt(i.getTaxType())) {
-                    %>
-                    <td><%=ta.getTaxType()%></td>
-                    <%
-                            }
-                        }
-                    %>
-                    <td><%=i.getTaxpayerRepresentativeName()%></td>
-
-                </tr>
-
-                <%
-
-                    }
 
 
-                %>
-            </tbody>
-        </table>
-    </div>
-                <jsp:include page="Kabaka/views/layout/footer.jsp"/>
-</body>
+                        %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <jsp:include page="Kabaka/views/layout/footer.jsp"/>
+    </body>
 </html>
 <script type="text/javascript">
     $(document).ready(function () {

@@ -18,7 +18,7 @@ background: #7d8d96;}
  
 #accordion li {
 float: left;
-border-left:
+border-left:0px;
 display: block;
 height: 170px;
 width: 50px;
