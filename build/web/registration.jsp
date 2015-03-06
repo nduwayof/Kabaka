@@ -145,7 +145,7 @@
                                             String newTinNumber=Individual.newTinNumber();
                                         
                                         %>
-                                        <h2 class="center" >New TIN Number is <sul style="color: dodgerblue"><%=newTinNumber%></sul></h2>
+                                        <h2 class="center" >New TIN Number is <span style="color: dodgerblue"><%=newTinNumber%></span></h2>
                                         <br>
                                         <jsp:include page="Kabaka/views/wizard/individual.jsp"/>
                                     </div>
