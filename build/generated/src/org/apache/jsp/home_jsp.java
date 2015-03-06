@@ -52,6 +52,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("        <meta name=\"description\" content=\"\">\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write("        \n");
       out.write("\n");
       out.write("        <link href=\"Kabaka/libs/bower_components/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\"/>\n");
       out.write("        <link href=\"Kabaka/css/main.css\" rel=\"stylesheet\"/>\n");

@@ -4,6 +4,8 @@
     Author     : Fabrice
 --%>
 
+<%@page import="rw.djuma.TaxPayerType"%>
+<%@page import="rw.djuma.TaxType"%>
 <div class="form-group">
     <div class="col-md-3">
         <label for="surname">Owner's Surname</label>
@@ -379,12 +381,19 @@
         <input type="text" name="faxNo" id="faxNo" class="form-control">
     </div>
 </div>
-<div class="form-group">
+<div class="form-group" >
     <div class="col-md-3">
-        <label for="resident">Resident</label>
+        <label for="resident">Resident :</label>
+        <label>
+            <input type="radio" name="resident" value="1" onclick="hideresidentDjuma()">Yes
+        </label>
+        <label>
+            <input type="radio" name="resident" value="0" onclick="showresidentDjuma()">No
+        </label>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9" id="residentDjuma">
         <select id="countryOfResidence" name="countryOfResidence" class="form-control">
+            <option value=""></option>
             <option value="Afghanistan">Afghanistan</option>
             <option value="Åland Islands">Åland Islands</option>
             <option value="Albania">Albania</option>
@@ -638,7 +647,15 @@
     </div>
     <div class="col-md-9">
         <select class="form-control" name="taxpayerType">
-            <option>taxpayerType</option>
+            <%
+            for(TaxPayerType t: TaxPayerType.listTaxPayerType()){
+            if(t.isDeletedStatus()==false){
+            %>
+            <option value="<%=t.getId()%>"><%=t.getTaxpayerType()%></option>
+            <%
+            }
+            }
+            %>
         </select>
     </div>
 </div>
@@ -647,8 +664,16 @@
         <label for="taxType">Type of Taxes</label>
     </div>
     <div class="col-md-9">
-        <select class="form-control" name="taxpayerType">
-            <option>taxType</option>
+        <select class="form-control" name="taxType">
+            <%
+            for(TaxType t: TaxType.listTaxType()){
+            if(t.isDeletedStatus()==false){
+            %>
+            <option value="<%=t.getId()%>"><%=t.getTaxType()%></option>
+            <%
+            }
+            }
+            %>
         </select>
     </div>
 </div>

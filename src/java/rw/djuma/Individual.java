@@ -75,7 +75,66 @@ public class Individual {
     private String errorMariageDob;
     private String errorDob;
     private String errordecead;
+    private String tinNumber="";
 
+    public String getTinNumber() {
+        return tinNumber;
+    }
+
+    public void setTinNumber(String tinNumber) {
+        this.tinNumber = tinNumber;
+    }
+    
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getDeceadDate() {
+        return deceadDate;
+    }
+
+    public void setDeceadDate(String deceadDate) {
+        this.deceadDate = deceadDate;
+    }
+
+    public String getMariageDob() {
+        return mariageDob;
+    }
+
+    public void setMariageDob(String mariageDob) {
+        this.mariageDob = mariageDob;
+    }
+
+    public String getErrorMariageDob() {
+        return errorMariageDob;
+    }
+
+    public void setErrorMariageDob(String errorMariageDob) {
+        this.errorMariageDob = errorMariageDob;
+    }
+
+    public String getErrorDob() {
+        return errorDob;
+    }
+
+    public void setErrorDob(String errorDob) {
+        this.errorDob = errorDob;
+    }
+
+    public String getErrordecead() {
+        return errordecead;
+    }
+
+    public void setErrordecead(String errordecead) {
+        this.errordecead = errordecead;
+    }
+
+    
     public Date getDob1() {
         return dob1;
     }
@@ -157,36 +216,8 @@ public class Individual {
     public void setOwnerFirstName(String ownerFirstName) {
         this.ownerFirstName = ownerFirstName;
     }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-        try{
-        SimpleDateFormat j=new SimpleDateFormat("dd/MM/yyyy");
-        dob1=j.parse(dob);
-        }catch(Exception e){
-        valid=false;
-        }
-    }
-
-    public String getDeceadDate() {
-        return deceadDate;
-    }
-
-    public void setDeceadDate(String deceadDate) {
-        this.deceadDate = deceadDate;
-        try{
-        SimpleDateFormat j=new SimpleDateFormat("dd/MM/yyyy");
-        deceadDate1=j.parse(deceadDate);
-        }catch(Exception e){
-        valid=false;
-        }
-    }
-
-    public String getGender() {
+    
+     public String getGender() {
         return gender;
     }
 
@@ -273,7 +304,13 @@ public class Individual {
     public void setResident(String resident) {
         this.resident = resident;
         try{
-        resident1=Boolean.parseBoolean(resident);
+            int i=Integer.parseInt(resident);
+            if(i==1){
+            resident1=true;
+            }else{
+            resident1=false;
+            }
+        //resident1=Boolean.parseBoolean(resident);
         }catch(Exception e){
             valid=false;
         }
@@ -327,20 +364,7 @@ public class Individual {
         this.mariageSurname = mariageSurname;
     }
 
-    public String getMariageDob() {
-        return mariageDob;
-    }
-
-    public void setMariageDob(String mariageDob) {
-        this.mariageDob = mariageDob;
-        try{
-            SimpleDateFormat j=new SimpleDateFormat("dd/MM/yyyy");
-            mariageDob1=j.parse(mariageDob);
-        }catch(Exception e){
-            errorMariageDob="The date should have this format: dd/MM/yyyy";
-        valid=false;
-        }
-    }
+    
 
     public String getPlotNo() {
         return plotNo;
@@ -540,11 +564,12 @@ public class Individual {
     public void save(){
     try{
         if(valid){
-        PreparedStatement st=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            tinNumber=Individual.newTinNumber();
+        PreparedStatement st=SetCon.getCon().prepareStatement("insert into individual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         st.setString(1, ownerSurname);
         st.setString(2, ownerFirstName);
-        st.setDate(3, new java.sql.Date(dob1.getTime()));
-        st.setDate(4, new java.sql.Date(deceadDate1.getTime()));
+        st.setString(3, dob);
+        st.setString(4, deceadDate);
         st.setString(5, gender);
         st.setString(6, occupation);
         st.setString(7, nationality);
@@ -562,7 +587,7 @@ public class Individual {
         st.setString(19, civilStatus);
         st.setString(20, mariageName);
         st.setString(21, mariageSurname);
-        st.setDate(22, new java.sql.Date(mariageDob1.getTime()));
+        st.setString(22, mariageDob);
         st.setString(23, plotNo);
         st.setString(24, street);
         st.setString(25, cellule);
@@ -587,6 +612,7 @@ public class Individual {
         st.setTimestamp(44, doneAt);
         st.setString(45, doneBy);
         st.setBoolean(46, deletedStatus);
+        st.setString(47, tinNumber);
         st.execute();
         info="Registration done successfull";
         }
@@ -607,8 +633,8 @@ public class Individual {
             i.setId(rs.getInt(1));
             i.setOwnerSurname(rs.getString(2));
             i.setOwnerFirstName(rs.getString(3));
-            i.setDob1(rs.getDate(4));
-            i.setDeceadDate1(rs.getDate(5));
+            i.setDob(rs.getString(4));
+            i.setDeceadDate(rs.getString(5));
             i.setGender(rs.getString(6));
             i.setOccupation(rs.getString(7));
             i.setNationality(rs.getString(8));
@@ -626,7 +652,7 @@ public class Individual {
             i.setCivilStatus(rs.getString(20));
             i.setMariageName(rs.getString(21));
             i.setMariageSurname(rs.getString(22));
-            i.setMariageDob1(rs.getDate(23));
+            i.setMariageDob(rs.getString(23));
             i.setPlotNo(rs.getString(24));
             i.setStreet(rs.getString(25));
             i.setCellule(rs.getString(26));
@@ -651,13 +677,50 @@ public class Individual {
             i.setDoneAt(rs.getTimestamp(45));
             i.setDoneBy(rs.getString(46));
             i.setDeletedStatus(rs.getBoolean(47));
+            i.setTinNumber(rs.getString(48));
             list.add(i);
-            
             }
     }catch(Exception e){
     
     }
         return list;
+    }
+    
+    public static String newTinNumber(){
+    String msg="";
+    String lastTinNumber="";
+    String newTinNumber="";
+    for(Individual d: Individual.listIndividual()){
+   if(d.isDeletedStatus()==false){
+   lastTinNumber=d.getTinNumber();
+   }
+    }
+    
+    if(lastTinNumber.equalsIgnoreCase("")){
+            newTinNumber="TIN/IN/0001";
+            msg=newTinNumber;
+        }else{
+       lastTinNumber=lastTinNumber.substring(7);
+            if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) < 9) {
+                newTinNumber = "000" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 3).equalsIgnoreCase("000") && Integer.parseInt(lastTinNumber.substring(3)) == 9) {
+                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(3))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) < 99) {
+                newTinNumber = "00" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 2).equalsIgnoreCase("00") && Integer.parseInt(lastTinNumber.substring(2)) == 99) {
+                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(2))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) < 999) {
+                newTinNumber = "0" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
+            } else if (lastTinNumber.length() == 4 && lastTinNumber.substring(0, 1).equalsIgnoreCase("0") && Integer.parseInt(lastTinNumber.substring(1)) == 999) {
+                newTinNumber = "" + ((Integer.parseInt(lastTinNumber.substring(1))) + 1);
+            } else {
+                newTinNumber = "" + ((Integer.parseInt(lastTinNumber)) + 1);
+            }
+            msg="TIN/IN/"+newTinNumber;
+        }
+    
+    return msg;
+    
     }
     
 }

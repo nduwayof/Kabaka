@@ -4,6 +4,7 @@
     Author     : Fabrice
 --%>
 
+<%@page import="rw.djuma.Individual"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,7 @@
         <link href="Kabaka/css/main.css" rel="stylesheet"/>
         <link href="Kabaka/libs/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
         <link href="Kabaka/css/icomoon.css" rel="stylesheet"/>
+        
 
 
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
@@ -39,16 +41,22 @@
                 $('#nonIndividual').hide();
                 $('#deceasedDate').hide();
                 $('#civilId').hide();
+                $('#residentDjuma').hide();
+
+
+                
 
 
             });
             function showIndividual() {
                 $('#nonIndividual').hide();
                 $('#individual').show();
+                Location.reload();
             }
             function showNonIndividual() {
                 $('#individual').hide();
                 $('#nonIndividual').show();
+                Location.reload();
             }
             function showDeceaseDate() {
                 $('#deceasedDate').show();
@@ -64,6 +72,14 @@
                 $('#civilId').hide();
 
             }
+            function showresidentDjuma() {
+                $('#residentDjuma').show();
+
+            }
+            function hideresidentDjuma() {
+                $('#residentDjuma').hide();
+
+            }
 
         </script>
 
@@ -76,7 +92,7 @@
         <br>
         <br>
         <div class="container">
-            <form class="form-horizontal">
+            <form class="form-horizontal" id="dju">
                 <table class="table table-responsive">
                     <tr>
                         <td> 
@@ -125,6 +141,11 @@
                                     </div>
                                     <div id="individual">
                                         <h3>Individual Enterprise</h3>
+                                        <%
+                                            String newTinNumber=Individual.newTinNumber();
+                                        
+                                        %>
+                                        <h2 class="center" >New TIN Number is <sul style="color: dodgerblue"><%=newTinNumber%></sul></h2>
                                         <br>
                                         <jsp:include page="Kabaka/views/wizard/individual.jsp"/>
                                     </div>

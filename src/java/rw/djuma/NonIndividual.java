@@ -64,6 +64,15 @@ public class NonIndividual {
     private String doneBy="";
     private Timestamp doneAt=new Timestamp(new Date().getTime());
     private boolean valid=true;
+    private String tinNumber="";
+
+    public String getTinNumber() {
+        return tinNumber;
+    }
+
+    public void setTinNumber(String tinNumber) {
+        this.tinNumber = tinNumber;
+    }
 
     public String getSector() {
         return sector;
@@ -449,7 +458,7 @@ public class NonIndividual {
     
     public void save(){
     try{
-        PreparedStatement st=SetCon.getCon().prepareStatement("insert into nonIndividual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement st=SetCon.getCon().prepareStatement("insert into nonIndividual values(id,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         st.setString(1, enterpriseType);
         st.setString(2, incBenefitsInvestment);
         st.setString(3, noOfExpiration);
@@ -492,6 +501,7 @@ public class NonIndividual {
         st.setString(40, contactPhone);
         st.setString(41, doneBy);
         st.setTimestamp(42, doneAt);
+        st.setString(43, tinNumber);
         st.execute();
     }catch(Exception e){
     error="Try Again";
@@ -550,6 +560,7 @@ public class NonIndividual {
         ni.setContactPhone(rs.getString(41));
         ni.setDoneBy(rs.getString(42));
         ni.setDoneAt(rs.getTimestamp(43));
+        ni.setTinNumber(rs.getString(44));
         list.add(ni);
         }
     }catch(Exception e){
