@@ -55,38 +55,93 @@ public final class ListIndividual_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>Kabaka | Individual Enterprise List</title>\n");
+      out.write("\n");
+      out.write("        <link href=\"Kabaka/libs/bower_components/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\"/>\n");
+      out.write("        <link href=\"Kabaka/css/main.css\" rel=\"stylesheet\"/>\n");
+      out.write("        <link href=\"Kabaka/libs/bower_components/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\"/>\n");
+      out.write("        <link href=\"Kabaka/css/icomoon.css\" rel=\"stylesheet\"/>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>\n");
+      out.write("        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>\n");
+      out.write("\n");
+      out.write("        <link rel=\"stylesheet\" href=\"media/css/jquery.dataTables.css\" type=\"text/css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"media/css/jquery.dataTables.min.css\" type=\"text/css\">  \n");
+      out.write("        <link rel=\"stylesheet\" href=\"media/css/dataTables.bootstrap.css\" type=\"text/css\">  \n");
+      out.write("        <link rel=\"stylesheet\" href=\"media/css/dataTables.tableTools.css\" type=\"text/css\"> \n");
+      out.write("\n");
+      out.write("\n");
       out.write("        <script src=\"media/js/jquery.js\" type=\"text/javascript\"></script>\n");
       out.write("        <script src=\"media/js/jquery.dataTables.js\" type=\"text/javascript\"></script>\n");
       out.write("        <script src=\"media/js/dataTable.tableTools.min.js\" type=\"text/javascript\"></script>\n");
       out.write("        <script src=\"media/js/jquery.dataTables.min.js\" type=\"text/javascript\"></script>\n");
-      out.write("        <link rel=\"stylesheet\" href=\"media/css/jquery.dataTables.css\" type=\"text/css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"media/css/jquery.dataTables.min.css\" type=\"text/css\">  \n");
-      out.write("        <link rel=\"stylesheet\" href=\"media/css/dataTables.tableTools.css\" type=\"text/css\"> \n");
-      out.write("                <link href=\"Kabaka/libs/bower_components/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\"/>\n");
+      out.write("        <script src=\"media/js/dataTables.bootstrap.js\" type=\"text/javascript\"></script>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <a class=\"btn btn-primary btn-lg\" href=\"registration.jsp\">\n");
-      out.write("            <i class=\"glyphicon glyphicon-arrow-left bigger-130\">\n");
-      out.write("                    Back To Registration\n");
-      out.write("            </i>\n");
+      out.write("        ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Kabaka/views/layout/navbar.jsp", out, false);
+      out.write("\n");
+      out.write("\n");
+      out.write("        <br>\n");
+      out.write("        <br>\n");
+      out.write("    <center>\n");
+      out.write("        <form action=\"report.jsp\" method=\"POST\" class=\"form-horizontal\">\n");
+      out.write("            <div class=\"col-lg-3\">\n");
+      out.write("                <a class=\"btn btn-primary btn-lg\" href=\"registration.jsp\">\n");
+      out.write("                    <i class=\"glyphicon glyphicon-arrow-left bigger-130\">\n");
+      out.write("                        Back To Registration\n");
+      out.write("                    </i>\n");
       out.write("                </a>\n");
-      out.write("           \n");
-      out.write("          <center>\n");
-      out.write("              <form action=\"report.jsp\" method=\"POST\">\n");
-      out.write("                  Select Type To Print: <select name=\"value\">\n");
-      out.write("                      <option>TaxPayerType</option>\n");
-      out.write("                      <option>TaxType</option>\n");
-      out.write("                  </select>\n");
-      out.write("                  <button  type=\"Submit\"class=\"btn btn-primary btn-lg\">\n");
-      out.write("            <i class=\"glyphicon glyphicon-print\">\n");
-      out.write("                    Print\n");
-      out.write("            </i>\n");
-      out.write("                </button>\n");
-      out.write("              </form>\n");
-      out.write("            \n");
-      out.write("          </center>\n");
-      out.write("        <div>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"col-lg-6\">\n");
+      out.write("                <div class=\"form-group\">\n");
+      out.write("                    <div class=\"col-md-5\">\n");
+      out.write("                        <label>            \n");
+      out.write("                            Select Tax Payer Type To Print: \n");
+      out.write("                        </label>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"col-md-5\">\n");
+      out.write("                        <select name=\"taxpayerType\" class=\"form-control\">\n");
+      out.write("                            ");
+
+                                for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
+                                    if (t.isDeletedStatus() == false) {
+                            
+      out.write("\n");
+      out.write("                            <option value=\"");
+      out.print(t.getId());
+      out.write('"');
+      out.write('>');
+      out.print(t.getTaxpayerType());
+      out.write("</option>\n");
+      out.write("                            ");
+
+                                    }
+                                }
+                            
+      out.write("\n");
+      out.write("                        </select> \n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"col-md-2\">\n");
+      out.write("                        <button  type=\"Submit\"class=\"btn btn-primary btn-lg\">\n");
+      out.write("                            <i class=\"glyphicon glyphicon-print\">\n");
+      out.write("                                Print\n");
+      out.write("                            </i>\n");
+      out.write("                        </button>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"col-lg-3\">\n");
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("        </form>\n");
+      out.write("\n");
+      out.write("    </center>\n");
+      out.write("    <div>\n");
       out.write("        <table border=\"1\" id=\"djuma\">\n");
       out.write("            <thead>\n");
       out.write("                <tr>\n");
@@ -103,7 +158,7 @@ public final class ListIndividual_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("            <tbody>\n");
       out.write("                ");
 
-                for(Individual i: Individual.listIndividual()){
+                    for (Individual i : Individual.listIndividual()) {
                 
       out.write("\n");
       out.write("                <tr>\n");
@@ -124,23 +179,24 @@ public final class ListIndividual_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("</td>\n");
       out.write("                    ");
 
-                    for(TaxPayerType t: TaxPayerType.listTaxPayerType()){
-                if(t.getId()==Integer.parseInt(i.getTaxpayerType())){
-                
+                        for (TaxPayerType t : TaxPayerType.listTaxPayerType()) {
+                            if (t.getId() == Integer.parseInt(i.getTaxpayerType())) {
+                    
       out.write("\n");
-      out.write("                 <td>");
+      out.write("                    <td>");
       out.print(t.getTaxpayerType());
       out.write("</td>\n");
-      out.write("                 ");
-    
-                    
-                }}
+      out.write("                    ");
+
+
+                            }
+                        }
                     
       out.write("\n");
       out.write("                    ");
 
-                    for(TaxType ta: TaxType.listTaxType()){
-                        if(ta.getId()==Integer.parseInt(i.getTaxType())){
+                        for (TaxType ta : TaxType.listTaxType()) {
+                            if (ta.getId() == Integer.parseInt(i.getTaxType())) {
                     
       out.write("\n");
       out.write("                    <td>");
@@ -148,8 +204,8 @@ public final class ListIndividual_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("</td>\n");
       out.write("                    ");
 
-                    }
-                    }
+                            }
+                        }
                     
       out.write("\n");
       out.write("                    <td>");
@@ -157,36 +213,38 @@ public final class ListIndividual_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("</td>\n");
       out.write("\n");
       out.write("                </tr>\n");
-      out.write("                \n");
+      out.write("\n");
       out.write("                ");
 
-                
-                }
-                
-               
-                
+
+                    }
+
+
                 
       out.write("\n");
       out.write("            </tbody>\n");
       out.write("        </table>\n");
-      out.write("        </div>\n");
-      out.write("    </body>\n");
+      out.write("    </div>\n");
+      out.write("    ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "Kabaka/views/layout/footer.jsp", out, false);
+      out.write("\n");
+      out.write("</body>\n");
       out.write("</html>\n");
-      out.write("  <script type=\"text/javascript\"> \n");
-      out.write("            $(document).ready(function(){\n");
-      out.write("                 $('#djuma').dataTable({\n");
-      out.write("            \"dom\" : 'CT<\"clear\">lfrtip',\n");
-      out.write("            \"oTableTools\" : {\n");
-      out.write("                \"sSwfPath\" : \"../swf/copy_csv_xls_pdf.swf\",\n");
-      out.write("                \"aButtons\" : [ \"copy\", \"print\", {\n");
-      out.write("                    \"sExtends\" : \"collection\",\n");
-      out.write("                    \"sButtonText\" : \"Save\",\n");
-      out.write("                    \"aButtons\" : [ \"csv\", \"xls\", \"pdf\" ]\n");
-      out.write("                } ]\n");
+      out.write("<script type=\"text/javascript\">\n");
+      out.write("    $(document).ready(function () {\n");
+      out.write("        $('#djuma').dataTable({\n");
+      out.write("            \"dom\": 'CT<\"clear\">lfrtip',\n");
+      out.write("            \"oTableTools\": {\n");
+      out.write("                \"sSwfPath\": \"../swf/copy_csv_xls_pdf.swf\",\n");
+      out.write("                \"aButtons\": [\"copy\", \"print\", {\n");
+      out.write("                        \"sExtends\": \"collection\",\n");
+      out.write("                        \"sButtonText\": \"Save\",\n");
+      out.write("                        \"aButtons\": [\"csv\", \"xls\", \"pdf\"]\n");
+      out.write("                    }]\n");
       out.write("            }\n");
       out.write("        });\n");
-      out.write("            });\n");
-      out.write("        </script>");
+      out.write("    });\n");
+      out.write("</script>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
