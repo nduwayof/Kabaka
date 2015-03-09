@@ -98,7 +98,6 @@ function SmartWizard(target, options) {
                     if (!$this.options.onFinish.call(this, $($this.steps), context)) {
                         return false;
                     }
-<<<<<<< HEAD
                 }else{
 
                     var frm = $this.target.parents('form');
@@ -116,22 +115,6 @@ function SmartWizard(target, options) {
                       
 
                     if(frm && frm.length){
-=======
-                } else {
-                    var frm = $this.target.parents('#dju');
-                    // alert(frm);
-                    var formData = [];
-                    formData = $("form").serializeArray();
-                    $.post("processing.jsp", formData,
-                            function (data) {
-                                // alert(data);
-                                //  document.getElementById("sp20").innerHTML = data;
-
-                            }
-                    );
-
-                    if (frm && frm.length) {
->>>>>>> a22a344668985a7dc0ee42ece6f8b4503a33a353
                         frm.submit();
                     }
                 }
