@@ -99,10 +99,9 @@ function SmartWizard(target, options) {
                         return false;
                     }
                 }else{
-<<<<<<< HEAD
+
                     var frm = $this.target.parents('form');
-=======
-                    var frm = $this.target.parents('#dju');
+                    //var frm = $this.target.parents('#dju');
                      // alert(frm);
                      var formData = [];
         formData = $("form").serializeArray();
@@ -114,7 +113,7 @@ function SmartWizard(target, options) {
             }
         );
                       
->>>>>>> b7b1d87c3543731d474a76900da4c340a912c471
+
                     if(frm && frm.length){
                         frm.submit();
                     }
